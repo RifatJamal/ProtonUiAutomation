@@ -29,6 +29,7 @@ export class ProtonSignInPage {
     }
 
     async isLoaded() {
+        await this.page.waitForLoadState("domcontentloaded");
         await expect(this.signInHeader).toBeVisible();
         await expect(this.page).toHaveURL(PROTON_ACCOUNT_URL + "login");
     }

@@ -80,7 +80,7 @@ class ResourcesAndSupportPanel {
     constructor(page: Page) {
         this.page = page;
         this.frequentlyAskedQuestion = this.page.getByRole('link', { name: 'Frequently asked questions' });
-        this.protonGuideToItSecurity = this.page.getByRole('link', { name: 'Business support Guides and' });
+        this.businessSupport = this.page.getByRole('link', { name: 'Business support Guides and' });
         this.protonGuideToItSecurity = this.page.getByRole('link', { name: 'Proton guide to IT security' });
         this.protonInsights = this.page.getByRole('link', { name: 'Proton Insights Keep your' });
         this.gdprCompliance = this.page.getByRole('link', { name: 'GDPR compliance Keep your' });

@@ -6,7 +6,7 @@ export class ProtonHomePage {
     readonly headerMenu: HeaderMenu;
     readonly centerMenu: CenterMenu;
     readonly footerMenu: FooterMenu;
-    readonly productPanel: ProductPanel;
+    readonly productsPanel: ProductsPanel;
     readonly whoWeArePanel: WhoWeArePanel;
     readonly resourcesAndSupportPanel: ResourcesAndSupportPanel;
 
@@ -15,7 +15,7 @@ export class ProtonHomePage {
         this.headerMenu = new HeaderMenu(page);
         this.centerMenu = new CenterMenu(page);
         this.footerMenu = new FooterMenu(page);
-        this.productPanel = new ProductPanel(page);
+        this.productsPanel = new ProductsPanel(page);
         this.whoWeArePanel = new WhoWeArePanel(page);
         this.resourcesAndSupportPanel = new ResourcesAndSupportPanel(page);
     }
@@ -44,7 +44,7 @@ class HeaderMenu {
     readonly page: Page;
     readonly self: Locator;
     readonly protonLogo: Locator;
-    readonly productButton: Locator;
+    readonly productsButton: Locator;
     readonly whoWeAreButton: Locator;
     readonly resourcesAndSupportButton: Locator;
     readonly forBusinessLink: Locator;
@@ -55,7 +55,7 @@ class HeaderMenu {
         this.page = page;
         this.self = page.getByTestId('header-id');
         this.protonLogo = this.self.getByRole('link', { name: 'Proton' });
-        this.productButton = this.self.getByRole('button', { name: 'Products' });
+        this.productsButton = this.page.getByRole('button', { name: 'Products' });
         this.whoWeAreButton = this.self.getByRole('button', { name: 'Who we are' });
         this.resourcesAndSupportButton = this.page.getByRole('button', { name: 'Resources & Support' });
         this.forBusinessLink = this.self.getByRole('link', { name: 'For Business' });
@@ -97,7 +97,7 @@ class FooterMenu {
     }
 }
 
-class ProductPanel {
+class ProductsPanel {
     readonly page: Page;
     readonly self: Locator;
     readonly protonMail: Locator;
@@ -166,11 +166,11 @@ class ResourcesAndSupportPanel {
         this.helpAndSupport = this.page.getByRole('link', { name: 'Help and support Guides' });
         this.passwordGenerator = this.page.getByRole('link', { name: 'Password generator Create' });
         this.downloadTheApps = this.page.getByText('Download the apps');
-        this.protonMail = this.page.getByTestId('product-header-id').getByRole('link', { name: 'Proton Mail' });
-        this.protonCalendar = this.page.getByTestId('product-header-id').getByRole('link', { name: 'Proton Calendar' });
-        this.protonDrive = this.page.getByTestId('product-header-id').getByRole('link', { name: 'Proton Drive' });
-        this.protonVpn = this.page.getByTestId('product-header-id').getByRole('link', { name: 'Proton VPN (new window)' });
-        this.protonPass = this.page.getByTestId('product-header-id').getByRole('link', { name: 'Proton Pass' });
+        this.protonMail = this.page.getByTestId('header-id').getByRole('link', { name: 'Proton Mail' });
+        this.protonCalendar = this.page.getByTestId('header-id').getByRole('link', { name: 'Proton Calendar' });
+        this.protonDrive = this.page.getByTestId('header-id').getByRole('link', { name: 'Proton Drive' });
+        this.protonVpn = this.page.getByTestId('header-id').getByRole('link', { name: 'Proton VPN (new window)' });
+        this.protonPass = this.page.getByTestId('header-id').getByRole('link', { name: 'Proton Pass' });
         this.blogLogo = this.page.getByTestId('product-header-id').getByRole('link', { name: 'Blog (new window)' });
         this.protonPassLogo = this.page.getByRole('link', { name: 'Proton', exact: true });
         this.protonNewHeading = this.page.getByRole('heading', { name: 'Proton news' });

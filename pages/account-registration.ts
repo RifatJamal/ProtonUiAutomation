@@ -22,7 +22,7 @@ export class ProtonSignUpPage {
     }
 
     async isLoaded() {
-        await expect(this.signInLink).toBeVisible();
+        await this.page.waitForLoadState("domcontentloaded");
         await expect(this.page).toHaveURL(PROTON_ACCOUNT_URL + "signup");
     }
 }

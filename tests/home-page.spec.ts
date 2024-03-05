@@ -9,7 +9,7 @@ test.beforeEach(async ({ proton }) => {
 
 test('TestCase1.1: Validate Proton homepage', async ({ proton }) => {
     await test.step('Validate header menu', async () => {
-        await expect(proton.headerMenu.productButton).toBeVisible();
+        await expect(proton.headerMenu.productsButton).toBeVisible();
         await expect(proton.headerMenu.whoWeAreButton).toBeVisible();
         await expect(proton.headerMenu.resourcesAndSupportButton).toBeVisible();
         await expect(proton.headerMenu.forBusinessLink).toBeVisible();
@@ -48,12 +48,12 @@ test('TestCase1.1: Validate Proton homepage', async ({ proton }) => {
 
 test('TestCase1.2: Validate global sub-menus', async ({ proton }) => {
     await test.step('Click on "Products" and validate the panel', async () => {
-        await proton.headerMenu.productButton.click();
-        await expect(proton.productPanel.protonMail).toBeVisible({ timeout: 3000 });
-        await expect(proton.productPanel.protonCalendar).toBeVisible();
-        await expect(proton.productPanel.protonDrive).toBeVisible();
-        await expect(proton.productPanel.protonVpn).toBeVisible();
-        await expect(proton.productPanel.protonPass).toBeVisible();
+        await proton.headerMenu.productsButton.click( {delay: 2000} );
+        await expect(proton.productsPanel.protonMail).toBeVisible({ timeout: 3000 });
+        await expect(proton.productsPanel.protonCalendar).toBeVisible();
+        await expect(proton.productsPanel.protonDrive).toBeVisible();
+        await expect(proton.productsPanel.protonVpn).toBeVisible();
+        await expect(proton.productsPanel.protonPass).toBeVisible();
     });
 
     await test.step('Click on "Who we are" and validate the panel', async () => {
@@ -63,7 +63,7 @@ test('TestCase1.2: Validate global sub-menus', async ({ proton }) => {
         await expect(proton.whoWeArePanel.impact).toBeVisible();
         await expect(proton.whoWeArePanel.careers).toBeVisible();
         await expect(proton.whoWeArePanel.community).toBeVisible();
-        await expect(proton.whoWeArePanel.openSOurce).toBeVisible();
+        await expect(proton.whoWeArePanel.openSource).toBeVisible();
     });
 
     await test.step('Click on "Resources & Support" and validate the panel', async () => {

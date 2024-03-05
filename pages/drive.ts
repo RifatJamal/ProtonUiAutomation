@@ -16,6 +16,7 @@ export class ProtonDrivePage {
 
     
     async isLoaded() {
+        await this.page.waitForLoadState("domcontentloaded");
         await expect(this.page).toHaveURL(/drive/);
     }
 

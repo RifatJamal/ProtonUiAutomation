@@ -12,7 +12,7 @@ test.beforeEach(async ({ proton }) => {
     });
 });
 
-test('TestCase2.1: Validate center menu naviagations', async ({ page, proton, protonMail }) => {
+test('TestCase2.1: Validate center menu navigations', async ({ page, proton, protonMail }) => {
     await test.step('Select email link and validate the email page', async () => {
         await proton.centerMenu.emailLink.click();
         await protonMail.isLoaded();
@@ -84,10 +84,10 @@ test('TestCase2.1: Validate center menu naviagations', async ({ page, proton, pr
     });
 });
 
-test('TestCase2.2: Validate menu naviagations for "Products""', async ({ page, proton, protonMail }) => {
-    await test.step('Select "Products" from the global menu, then select "Proton Mail""', async () => {
-        await proton.headerMenu.productButton.click();
-        await proton.productPanel.protonMail.click();
+test('TestCase2.2: Validate menu navigations for "Products"', async ({ page, proton, protonMail }) => {
+    await test.step('Select "Products" from the global menu, then select "Proton Mail"', async () => {
+        await proton.headerMenu.productsButton.click({ delay: 2000 });
+        await proton.productsPanel.protonMail.click({ delay: 2000 });
         await protonMail.isLoaded();
         await expect(protonMail.headerMenu.protonMailLogo).toBeVisible();
         await expect(protonMail.secureEmailThatProtectsMessage).toBeVisible();
@@ -95,8 +95,8 @@ test('TestCase2.2: Validate menu naviagations for "Products""', async ({ page, p
     });
 
     await test.step('Select "Products" from the global menu, then select "Proton Calendar"', async () => {
-        await proton.headerMenu.productButton.click();
-        await proton.productPanel.protonCalendar.click();
+        await proton.headerMenu.productsButton.click({ delay: 2000 });
+        await proton.productsPanel.protonCalendar.click({ delay: 2000 });
         const protonCalendar = new ProtonCalendarPage(page);
         await protonCalendar.isLoaded();
         await expect(protonCalendar.headerMenu.protonCalendarLogo).toBeVisible();
@@ -104,8 +104,8 @@ test('TestCase2.2: Validate menu naviagations for "Products""', async ({ page, p
     });
 
     await test.step('Select "Products" from the global menu, then select "Proton Drive"', async () => {
-        await proton.headerMenu.productButton.click();
-        await proton.productPanel.protonDrive.click();
+        await proton.headerMenu.productsButton.click({ delay: 2000 });
+        await proton.productsPanel.protonDrive.click({ delay: 2000 });
         const protonDrive = new ProtonDrivePage(page);
         await protonDrive.isLoaded();
         await expect(protonDrive.headerMenu.protonDriveLogo).toBeVisible();
@@ -113,8 +113,8 @@ test('TestCase2.2: Validate menu naviagations for "Products""', async ({ page, p
     });
 
     await test.step('Select "Products" from the global menu, then select "Proton Pass"', async () => {
-        await proton.headerMenu.productButton.click();
-        await proton.productPanel.protonPass.click();
+        await proton.headerMenu.productsButton.click({ delay: 2000 });
+        await proton.productsPanel.protonPass.click({ delay: 2000 });
         const protonPass = new ProtonPassPage(page);
         await protonPass.isLoaded();
         await expect(protonPass.headerMenu.protonPassLogo).toBeVisible();
@@ -122,46 +122,47 @@ test('TestCase2.2: Validate menu naviagations for "Products""', async ({ page, p
     });
 });
 
-test('TestCase2.3: Validate menu naviagations for "Who are we"', async ({ proton, protonMail }) => {
+test('TestCase2.3: Validate menu navigations for "Who are we"', async ({ proton, protonMail }) => {
 
     await test.step('Select "Who are we" from the global menu, then select "About us"', async () => {
-        await proton.headerMenu.whoWeAreButton.click();
+        await proton.headerMenu.whoWeAreButton.click({ delay: 2000 });
+        await proton.whoWeArePanel.aboutUs.isEnabled();
         await proton.whoWeArePanel.aboutUs.click();
         await proton.verifyTextMessage("We believe a better world starts with privacy and digital freedom");
         await proton.verifyUrlEndPointText("about");
     });
 
     await test.step('Select "Who are we" from the global menu, then select "Team"', async () => {
-        await proton.headerMenu.whoWeAreButton.click();
-        await proton.whoWeArePanel.team.click();
+        await proton.headerMenu.whoWeAreButton.click({ delay: 2000 });
+        await proton.whoWeArePanel.team.click({ delay: 2000 });
         await proton.verifyTextMessage("Meet the Proton team");
         await proton.verifyUrlEndPointText("about/team");
     });
 
     await test.step('Select "Who are we" from the global menu, then select "Impact"', async () => {
-        await proton.headerMenu.whoWeAreButton.click();
-        await proton.whoWeArePanel.impact.click();
+        await proton.headerMenu.whoWeAreButton.click({ delay: 2000 });
+        await proton.whoWeArePanel.impact.click({ delay: 2000 });
         await proton.verifyTextMessage("We advance society by advancing freedom");
         await proton.verifyUrlEndPointText("about/impact");
     });
 
     await test.step('Select "Who are we" from the global menu, then select "Careers" ', async () => {
-        await proton.headerMenu.whoWeAreButton.click();
-        await proton.whoWeArePanel.careers.click();
-        await proton.verifyTextMessage("Working at Proton");
+        await proton.headerMenu.whoWeAreButton.click({ delay: 2000 });
+        await proton.whoWeArePanel.careers.click({ delay: 2000 });
+        await proton.verifyTextMessage("For those up to the challenge");
         await proton.verifyUrlEndPointText("careers");
     });
 
     await test.step('Select "Who are we" from the global menu, then select "Community"', async () => {
-        await proton.headerMenu.whoWeAreButton.click();
-        await proton.whoWeArePanel.community.click();
+        await proton.headerMenu.whoWeAreButton.click({ delay: 2000 });
+        await proton.whoWeArePanel.community.click({ delay: 2000 });
         await proton.verifyTextMessage("Advancing privacy, together");
         await proton.verifyUrlEndPointText("community");
     });
 
     await test.step('Select "Who are we" from the global menu, then select "Open Source" ', async () => {
-        await proton.headerMenu.whoWeAreButton.click();
-        await proton.whoWeArePanel.openSource.click();
+        await proton.headerMenu.whoWeAreButton.click({ delay: 2000 });
+        await proton.whoWeArePanel.openSource.click({ delay: 2000 });
         await proton.verifyTextMessage("We believe in the power of open source");
         await proton.verifyUrlEndPointText("community/open-source");
     });
@@ -169,7 +170,9 @@ test('TestCase2.3: Validate menu naviagations for "Who are we"', async ({ proton
 
 test('TestCase2.4: Validate menu navigations for "Resources & Support"', async ({ proton }) => {
     await test.step('Select "Resources & Support" from the global menu, then select "Switch to Proton"', async () => {
-        await proton.headerMenu.resourcesAndSupportButton.click();
+        await proton.headerMenu.resourcesAndSupportButton.isVisible();
+        await proton.headerMenu.resourcesAndSupportButton.click({ delay: 2000 });
+        await proton.resourcesAndSupportPanel.switchToProton.isVisible();
         await proton.resourcesAndSupportPanel.switchToProton.click();
         await proton.verifyTextMessage("Proton Easy Switch");
         await proton.verifyUrlEndPointText("easyswitch");
@@ -183,58 +186,58 @@ test('TestCase2.4: Validate menu navigations for "Resources & Support"', async (
     });
 
     await test.step('Select "Resources & Support" from the global menu, then select "News" ', async () => {
-        await proton.headerMenu.resourcesAndSupportButton.click();
-        await proton.resourcesAndSupportPanel.news.click();
+        await proton.headerMenu.resourcesAndSupportButton.click({ delay: 2000 });
+        await proton.resourcesAndSupportPanel.news.click({ delay: 2000 });
         await expect(proton.resourcesAndSupportPanel.protonNewHeading).toBeVisible();
         await proton.verifyUrlEndPointText("blog/news");
     });
 
     await test.step('Select "Resources & Support" from the global menu, then select "Help and support"', async () => {
-        await proton.headerMenu.resourcesAndSupportButton.click();
+        await proton.headerMenu.resourcesAndSupportButton.click({ delay: 2000 });
         await proton.resourcesAndSupportPanel.helpAndSupport.click();
         await proton.verifyTextMessage("How can we help?");
         await proton.verifyUrlEndPointText("support");
-    
+
     });
 
     await test.step('Select "Resources & Support" from the global menu, then select "Password generator" ', async () => {
-        await proton.headerMenu.resourcesAndSupportButton.click();
-        await proton.resourcesAndSupportPanel.passwordGenerator.click();
-        await proton.verifyTextMessage("How can I create a strong");
+        await proton.headerMenu.resourcesAndSupportButton.click({ delay: 2000 });
+        await proton.resourcesAndSupportPanel.passwordGenerator.click({ delay: 2000 });
         await proton.verifyUrlEndPointText("pass/password-generator");
-        await proton.resourcesAndSupportPanel.protonPassLogo.click();
+        await proton.resourcesAndSupportPanel.protonPassLogo.click({ delay: 2000 });
     });
 
     await test.step('Select "Proton Pass" logo, then "Resources & Support" from the global menu, then select "Proton Mail" ', async () => {
-        await proton.headerMenu.resourcesAndSupportButton.click();
-        await proton.resourcesAndSupportPanel.protonMail.click();
+        await proton.headerMenu.resourcesAndSupportButton.isEnabled();
+        await proton.headerMenu.resourcesAndSupportButton.click({ delay: 2000 });
+        await proton.resourcesAndSupportPanel.protonMail.click({ delay: 2000 });
         await proton.verifyTextMessage("Get started with Proton Mail");
         await proton.verifyUrlEndPointText("mail/download");
     });
 
     await test.step('Select "Resources & Support" from the global menu, then select "Proton Calender"', async () => {
-        await proton.headerMenu.resourcesAndSupportButton.click();
-        await proton.resourcesAndSupportPanel.protonCalendar.click();
+        await proton.headerMenu.resourcesAndSupportButton.click({ delay: 2000 });
+        await proton.resourcesAndSupportPanel.protonCalendar.click({ delay: 2000 });
         await proton.verifyTextMessage("Your calendar is a record of your life and all its events. Keep it secure and");
         await proton.verifyUrlEndPointText("calendar/download");
     });
 
     await test.step('Select "Resources & Support" from the global menu, then select "Proton Drive" ', async () => {
-        await proton.headerMenu.resourcesAndSupportButton.click();
-        await proton.resourcesAndSupportPanel.protonDrive.click();
+        await proton.headerMenu.resourcesAndSupportButton.click({ delay: 2000 });
+        await proton.resourcesAndSupportPanel.protonDrive.click({ delay: 2000 });
         await proton.verifyTextMessage("Download Proton Drive");
         await proton.verifyUrlEndPointText("drive/download");
     });
 
     await test.step('Select "Resources & Support" from the global menu, then select "Proton Pass"', async () => {
-        await proton.headerMenu.resourcesAndSupportButton.click();
-        await proton.resourcesAndSupportPanel.protonPass.click();
+        await proton.headerMenu.resourcesAndSupportButton.click({ delay: 2000 });
+        await proton.resourcesAndSupportPanel.protonPass.click({ delay: 2000 });
         await proton.verifyTextMessage("Store your passwords and");
         await proton.verifyUrlEndPointText("pass/download");
     });
 });
 
-test('TestCase2.5: Validate menu naviagations for "For Business"', async ({ page, proton }) => {
+test('TestCase2.5: Validate menu navigations for "For Business"', async ({ page, proton }) => {
     const protonForBusiness = new ProtonForBusinessPage(page);
 
     await test.step('Select "Proton" logo, then select "For Business"', async () => {
@@ -260,7 +263,7 @@ test('TestCase2.5: Validate menu naviagations for "For Business"', async ({ page
     });
 
     await test.step('Select "Resources & Support" from the global menu', async () => {
-        await protonForBusiness.headerMenu.resourcesAndSupport.click();
+        await protonForBusiness.headerMenu.resourcesAndSupport.click({ delay: 2000 });
         await expect(protonForBusiness.headerMenu.resourcesAndSupportPanel.frequentlyAskedQuestion).toBeVisible();
         await expect(protonForBusiness.headerMenu.resourcesAndSupportPanel.businessSupport).toBeVisible();
         await expect(protonForBusiness.headerMenu.resourcesAndSupportPanel.protonGuideToItSecurity).toBeVisible();

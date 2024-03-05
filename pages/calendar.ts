@@ -16,6 +16,7 @@ export class ProtonCalendarPage {
 
     
     async isLoaded() {
+        await this.page.waitForLoadState("domcontentloaded");
         await expect(this.page).toHaveURL(/calendar/);
     }
 
